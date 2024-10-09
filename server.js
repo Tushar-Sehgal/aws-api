@@ -13,6 +13,11 @@ mongoose.connect(mongoURI)
   .then(() => console.log('Connected to MongoDB Atlas'))
   .catch((error) => console.error('MongoDB connection error:', error));
 
+// Target Group Health Check
+app.get('/health', (req, res) => {
+res.status(200).send('Healthy');
+});  
+
 // Define a schema for sensor data
 const sensorSchema = new mongoose.Schema({
   type: String,
